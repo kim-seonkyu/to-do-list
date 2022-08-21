@@ -80,7 +80,7 @@ function toggleComplete(id) {
       break;
     }
   }
-  render();
+  filter();
 }
 
 function deleteTask(id) {
@@ -90,7 +90,7 @@ function deleteTask(id) {
       break;
     }
   }
-  render();
+  filter();
 }
 
 function filter(event) {
@@ -102,7 +102,6 @@ function filter(event) {
       event.target.offsetTop + (event.target.offsetHeight - 4) + "px";
   }
 
-  mode = event.target.id;
   filterList = [];
 
   if (mode == "all") {
@@ -113,6 +112,7 @@ function filter(event) {
         filterList.push(taskList[i]);
       }
     }
+
     render();
   } else if (mode == "done") {
     for (let i = 0; i < taskList.length; i++) {
